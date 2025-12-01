@@ -18,7 +18,7 @@
 #gcas-casos-app .gcas-header-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end;}
 #gcas-casos-app .gcas-header-controls>*{flex-shrink:0;}
 #gcas-casos-app .gcas-search{display:flex;align-items:center;gap:6px;border:1px solid var(--gcas-gold);border-radius:999px;background:rgba(255,248,242,.95);box-shadow:0 4px 12px rgba(104,9,43,.08);padding:4px 8px;min-width:240px;height:40px;overflow:hidden;}
-#gcas-casos-app .gcas-search input{border:0;background:transparent;padding:4px 8px 4px 10px;font-size:14px;color:var(--gcas-primary-dark);min-width:0;flex:1 1 auto;font-family:'Poppins','Montserrat',sans-serif;}
+#gcas-casos-app .gcas-search input{border:0;background:transparent;padding:0 10px 0 12px;font-size:14px;color:var(--gcas-primary-dark);min-width:0;flex:1 1 auto;font-family:'Poppins','Montserrat',sans-serif;height:32px;line-height:32px;}
 #gcas-casos-app .gcas-search input:focus{outline:0;}
 #gcas-casos-app .gcas-search:focus-within{box-shadow:0 0 0 3px rgba(210,174,109,.35);}
 #gcas-casos-app .gcas-search-btn{border:0;background:var(--gcas-primary);color:#fff;border-radius:12px;width:38px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s ease,transform .12s ease;box-shadow:0 4px 10px rgba(104,9,43,.2);}
