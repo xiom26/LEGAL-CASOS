@@ -11,6 +11,7 @@ if (!defined('ABSPATH')) exit;
 
 final class GUC_Casos_Compact {
   const VERSION = '1.6.7';
+  const DB_VERSION = '1.0.0';
   private static $inst = null;
   public static function instance(){ return self::$inst ?: self::$inst = new self(); }
 
@@ -33,7 +34,7 @@ final class GUC_Casos_Compact {
     $this->t_sec_general  = $wpdb->prefix.'guc_secretaria_general_actions';
 
     add_action('init', [$this,'assets']);
-    add_action('plugins_loaded', [$this,'maybe_upgrade_schema']);
+    add_action('plugins_loaded', [$this,'maybe_install_schema']);
     add_shortcode('gestion_casos', [$this,'shortcode']);
 
     $ax = [
@@ -60,6 +61,13 @@ final class GUC_Casos_Compact {
     }
   }
 
+  public static function activate(){
+    $inst = self::instance();
+    $inst->install_schema();
+    $inst->maybe_upgrade_schema();
+    update_option('guc_casos_db_version', self::VERSION);
+  }
+
   public function maybe_upgrade_schema(){
     global $wpdb;
     $table = $this->t_cases;
@@ -72,6 +80,103 @@ final class GUC_Casos_Compact {
     }
     if (!in_array('estado_fecha', $columns, true)) {
       $wpdb->query("ALTER TABLE `$table` ADD `estado_fecha` datetime NULL DEFAULT NULL AFTER `estado`");
+    }
+  }
+
+  public function maybe_install_schema(){
+    $has_tables = $this->tables_exist();
+    $current = get_option('guc_casos_db_version');
+    if ($has_tables && $current === self::VERSION) {
+      return;
+    }
+    $this->install_schema();
+    $this->maybe_upgrade_schema();
+    update_option('guc_casos_db_version', self::VERSION);
+  }
+
+  private function tables_exist(){
+    global $wpdb;
+    $tables = [$this->t_users, $this->t_cases, $this->t_events, $this->t_pre, $this->t_arb, $this->t_sec_arbitral, $this->t_sec_general];
+    foreach($tables as $t){
+      if(!$t) continue;
+      $found = $wpdb->get_var($wpdb->prepare('SHOW TABLES LIKE %s', $t));
+      if(!$found) return false;
+    }
+    return true;
+  }
+
+  private function install_schema(){
+    global $wpdb;
+    require_once ABSPATH.'wp-admin/includes/upgrade.php';
+    $collate = $wpdb->get_charset_collate();
+
+    $sql = [];
+
+    $sql[] = "CREATE TABLE {$this->t_users} (
+      id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+      username varchar(190) NOT NULL,
+      password_plain varchar(255) DEFAULT '' NOT NULL,
+      entity varchar(255) DEFAULT '' NOT NULL,
+      expediente varchar(255) DEFAULT '' NOT NULL,
+      created_at datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      PRIMARY KEY  (id),
+      KEY expediente (expediente)
+    ) $collate;";
+
+    $sql[] = "CREATE TABLE {$this->t_cases} (
+      id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+      nomenclature varchar(255) DEFAULT '' NOT NULL,
+      convocatoria varchar(255) DEFAULT '' NOT NULL,
+      expediente varchar(255) DEFAULT '' NOT NULL,
+      entidad varchar(255) DEFAULT '' NOT NULL,
+      objeto varchar(255) DEFAULT '' NOT NULL,
+      descripcion text,
+      estado varchar(50) DEFAULT '' NOT NULL,
+      estado_fecha datetime NULL DEFAULT NULL,
+      user_id bigint(20) unsigned NOT NULL,
+      username varchar(190) DEFAULT '' NOT NULL,
+      case_type varchar(20) DEFAULT '' NOT NULL,
+      created_at datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      PRIMARY KEY  (id),
+      UNIQUE KEY uniq_user (user_id),
+      KEY expediente (expediente)
+    ) $collate;";
+
+    $sql[] = "CREATE TABLE {$this->t_events} (
+      id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+      case_id bigint(20) unsigned NOT NULL,
+      situacion varchar(255) DEFAULT '' NOT NULL,
+      motivo text,
+      tipo varchar(20) DEFAULT '' NOT NULL,
+      fecha datetime DEFAULT NULL,
+      created_by bigint(20) unsigned DEFAULT 0 NOT NULL,
+      created_at datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      PRIMARY KEY  (id),
+      KEY case_id (case_id)
+    ) $collate;";
+
+    foreach([
+      $this->t_pre,
+      $this->t_arb,
+      $this->t_sec_arbitral,
+      $this->t_sec_general,
+    ] as $t){
+      $sql[] = "CREATE TABLE {$t} (
+        id bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+        case_id bigint(20) unsigned NOT NULL,
+        situacion varchar(255) DEFAULT '' NOT NULL,
+        motivo text,
+        fecha datetime DEFAULT NULL,
+        pdf_url varchar(255) DEFAULT NULL,
+        created_by bigint(20) unsigned DEFAULT 0 NOT NULL,
+        created_at datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY  (id),
+        KEY case_id (case_id)
+      ) $collate;";
+    }
+
+    foreach($sql as $q){
+      dbDelta($q);
     }
   }
 
@@ -723,4 +828,5 @@ final class GUC_Casos_Compact {
     wp_send_json_success();
   }
 }
+register_activation_hook(__FILE__, ['GUC_Casos_Compact','activate']);
 GUC_Casos_Compact::instance();
