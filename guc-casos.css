@@ -14,11 +14,11 @@
 /* ===== base ===== */
 #gcas-casos-app.gcas-wrap{font-family:'Montserrat','Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--gcas-text);background:var(--gcas-cream);padding:8px 10px;border-radius:16px;}
 #gcas-casos-app .gcas-header{display:flex;align-items:center;justify-content:space-between;margin:8px 0 16px;gap:12px;flex-wrap:wrap;}
-#gcas-casos-app .gcas-title{font-weight:800;font-size:24px;margin:0;margin-right:auto;color:var(--gcas-primary-dark);letter-spacing:.2px;}
+#gcas-casos-app .gcas-title{font-weight:800;font-size:24px;margin:0;margin-right:auto;color:var(--gcas-primary);letter-spacing:.2px;font-family:'Montserrat','Poppins',sans-serif;}
 #gcas-casos-app .gcas-header-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end;}
 #gcas-casos-app .gcas-header-controls>*{flex-shrink:0;}
-#gcas-casos-app .gcas-search{display:flex;align-items:center;gap:8px;border:1px solid var(--gcas-gold);border-radius:999px;background:rgba(255,248,242,.95);box-shadow:0 4px 12px rgba(104,9,43,.08);padding:6px 10px;min-width:240px;}
-#gcas-casos-app .gcas-search input{border:0;background:transparent;padding:8px 8px 8px 10px;font-size:14px;color:var(--gcas-primary-dark);min-width:0;flex:1 1 auto;font-family:'Poppins','Montserrat',sans-serif;}
+#gcas-casos-app .gcas-search{display:flex;align-items:center;gap:8px;border:1px solid var(--gcas-gold);border-radius:999px;background:rgba(255,248,242,.95);box-shadow:0 4px 12px rgba(104,9,43,.08);padding:4px 10px;min-width:240px;height:44px;}
+#gcas-casos-app .gcas-search input{border:0;background:transparent;padding:6px 8px 6px 10px;font-size:14px;color:var(--gcas-primary-dark);min-width:0;flex:1 1 auto;font-family:'Poppins','Montserrat',sans-serif;}
 #gcas-casos-app .gcas-search input:focus{outline:0;}
 #gcas-casos-app .gcas-search:focus-within{box-shadow:0 0 0 3px rgba(210,174,109,.35);}
 #gcas-casos-app .gcas-search-btn{border:0;background:var(--gcas-primary);color:#fff;border-radius:12px;width:42px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s ease,transform .12s ease;box-shadow:0 4px 10px rgba(104,9,43,.2);}
@@ -50,10 +50,10 @@
 
 /* ===== botones ===== */
 #gcas-casos-app .gcas-btn{border:0;border-radius:14px;padding:10px 16px;cursor:pointer;transition:.15s;box-shadow:0 4px 10px rgba(104,9,43,.12);font-weight:700;letter-spacing:.2px;font-family:'Poppins','Montserrat',sans-serif;}
-#gcas-casos-app .gcas-btn-primary{background:linear-gradient(90deg,var(--gcas-gold) 0%,var(--gcas-gold-soft) 100%);color:var(--gcas-primary-dark);border:1px solid var(--gcas-gold-strong);}
-#gcas-casos-app .gcas-btn-primary:hover{filter:brightness(0.96);}
-#gcas-casos-app .gcas-btn-secondary{background:rgba(210,174,109,.16);color:var(--gcas-primary-dark);border:1px solid var(--gcas-gold-strong);}
-#gcas-casos-app .gcas-btn-secondary:hover{background:rgba(210,174,109,.26);}
+#gcas-casos-app .gcas-btn-primary{background:var(--gcas-gold-strong);color:var(--gcas-primary-dark);border:1px solid var(--gcas-gold-strong);}
+#gcas-casos-app .gcas-btn-primary:hover{filter:brightness(0.94);}
+#gcas-casos-app .gcas-btn-secondary{background:var(--gcas-gold);color:var(--gcas-primary-dark);border:1px solid var(--gcas-gold-strong);}
+#gcas-casos-app .gcas-btn-secondary:hover{filter:brightness(0.96);}
 #gcas-casos-app .gcas-icon{display:inline-block;margin-right:6px;font-weight:900;}
 
 /* ===== tarjeta/tabla ===== */
@@ -85,7 +85,7 @@
 }
 #gcas-casos-app-modal .gcas-modal-header,
 #gcas-casos-app-modal-start .gcas-modal-header,
-#gcas-casos-app-modal-status .gcas-modal-header{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid rgba(210,174,109,.45);background:linear-gradient(90deg,var(--gcas-primary-dark) 0%,var(--gcas-primary) 100%);color:#fff;border-top-left-radius:22px;border-top-right-radius:22px;}
+#gcas-casos-app-modal-status .gcas-modal-header{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid rgba(210,174,109,.45);background:var(--gcas-primary);color:#fff;border-top-left-radius:22px;border-top-right-radius:22px;font-family:'Montserrat','Poppins',sans-serif;}
 #gcas-casos-app-modal .gcas-modal-header h3,
 #gcas-casos-app-modal-start .gcas-modal-header h3,
 #gcas-casos-app-modal-status .gcas-modal-header h3{margin:0;color:#fff;font-size:18px;letter-spacing:.3px;font-family:'Montserrat','Poppins',sans-serif;}
@@ -94,20 +94,20 @@
 #gcas-casos-app-modal-status .gcas-modal-close{background:#fff;border:1px solid rgba(210,174,109,.6);width:34px;height:34px;border-radius:50%;font-size:18px;cursor:pointer;color:var(--gcas-primary-dark);display:inline-flex;align-items:center;justify-content:center;box-shadow:0 6px 14px rgba(0,0,0,.16);}
 #gcas-casos-app-modal .gcas-modal-body,
 #gcas-casos-app-modal-start .gcas-modal-body,
-#gcas-casos-app-modal-status .gcas-modal-body{padding:22px 24px;background:var(--gcas-cream);}
+#gcas-casos-app-modal-status .gcas-modal-body{padding:16px 18px;background:var(--gcas-cream);}
 #gcas-casos-app-modal .gcas-modal-footer,
 #gcas-casos-app-modal-start .gcas-modal-footer,
-#gcas-casos-app-modal-status .gcas-modal-footer{padding:18px 24px;border-top:1px solid rgba(210,174,109,.45);display:flex;justify-content:flex-end;gap:10px;background:var(--gcas-cream);}
+#gcas-casos-app-modal-status .gcas-modal-footer{padding:14px 18px;border-top:1px solid rgba(210,174,109,.45);display:flex;justify-content:flex-end;gap:10px;background:var(--gcas-cream);}
 
 /* ===== formulario ===== */
 #gcas-casos-app .gcas-field,
 #gcas-casos-app-modal .gcas-field,
 #gcas-casos-app-modal-start .gcas-field,
-#gcas-casos-app-modal-status .gcas-field{margin-bottom:14px;}
+#gcas-casos-app-modal-status .gcas-field{margin-bottom:10px;}
 #gcas-casos-app .gcas-field label,
 #gcas-casos-app-modal .gcas-field label,
 #gcas-casos-app-modal-start .gcas-field label,
-#gcas-casos-app-modal-status .gcas-field label{display:block;margin-bottom:6px;color:var(--gcas-primary-dark);font-weight:800;letter-spacing:.2px;}
+#gcas-casos-app-modal-status .gcas-field label{display:block;margin-bottom:4px;color:var(--gcas-primary-dark);font-weight:800;letter-spacing:.2px;font-family:'Montserrat','Poppins',sans-serif;}
 #gcas-casos-app .gcas-field input[type=text],
 #gcas-casos-app .gcas-field textarea,
 #gcas-casos-app .gcas-field select,
@@ -119,7 +119,7 @@
 #gcas-casos-app-modal-start .gcas-field select,
 #gcas-casos-app-modal-status .gcas-field input[type=text],
 #gcas-casos-app-modal-status .gcas-field textarea,
-#gcas-casos-app-modal-status .gcas-field select{width:100%;padding:12px 14px;border:1px solid rgba(178,159,89,.65);border-radius:14px;outline:0;background:#fff;box-shadow:0 6px 12px rgba(66,4,26,.06);font-family:'Poppins','Montserrat',sans-serif;}
+#gcas-casos-app-modal-status .gcas-field select{width:100%;padding:10px 12px;border:1px solid rgba(178,159,89,.65);border-radius:14px;outline:0;background:#fff;box-shadow:0 6px 12px rgba(66,4,26,.06);font-family:'Poppins','Montserrat',sans-serif;}
 #gcas-casos-app .gcas-field textarea,
 #gcas-casos-app-modal .gcas-field textarea,
 #gcas-casos-app-modal-start .gcas-field textarea,
@@ -131,7 +131,7 @@
 #gcas-casos-app .gcas-row,
 #gcas-casos-app-modal .gcas-row,
 #gcas-casos-app-modal-start .gcas-row,
-#gcas-casos-app-modal-status .gcas-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+#gcas-casos-app-modal-status .gcas-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 #gcas-casos-app .gcas-col,
 #gcas-casos-app-modal .gcas-col,
 #gcas-casos-app-modal-start .gcas-col,
