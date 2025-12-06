@@ -348,8 +348,8 @@ final class GUC_Casos_Compact {
                 <input type="text" name="situacion" required>
               </div>
               <div class="gcas-col gcas-field">
-                <label>Fecha y Hora</label>
-                <input type="datetime-local" name="fecha" required>
+                <label>Fecha</label>
+                <input type="date" name="fecha" required>
               </div>
             </div>
             <div class="gcas-field">
@@ -399,8 +399,8 @@ final class GUC_Casos_Compact {
                 </select>
               </div>
               <div class="gcas-field">
-                <label>Fecha y Hora</label>
-                <input type="datetime-local" name="estado_fecha">
+                <label>Fecha</label>
+                <input type="date" name="estado_fecha">
               </div>
             </div>
           </form>
@@ -420,6 +420,14 @@ final class GUC_Casos_Compact {
     if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'guc_casos_nonce')) wp_send_json_error(['message'=>'Nonce inválido']);
   }
   private function html_esc($s){ return esc_html($s ?? ''); }
+  private function date_only($s){
+    if(!$s) return '';
+    $ts = strtotime($s);
+    if($ts){
+      return esc_html(date('Y-m-d', $ts));
+    }
+    return esc_html($s);
+  }
   private function now(){ return current_time('mysql'); }
 
   // ===== Helpers =====
@@ -690,7 +698,7 @@ final class GUC_Casos_Compact {
     $rows = $wpdb->get_results($wpdb->prepare("SELECT * FROM `$table` WHERE case_id=%d ORDER BY id DESC",$case_id));
     ob_start();
     echo '<table class="gcas-subtable gcas-subtable-compact"><thead><tr>';
-    echo '<th style="width:56px">NRO</th><th>SITUACIÓN</th><th>FECHA Y HORA</th><th>MOTIVO</th><th style="width:210px">ACCIONES</th>';
+    echo '<th style="width:56px">NRO</th><th>SITUACIÓN</th><th>FECHA</th><th>MOTIVO</th><th style="width:210px">ACCIONES</th>';
     echo '</tr></thead><tbody>';
     if(!$rows){
       echo '<tr><td colspan="5" class="gcas-empty">Sin registros.</td></tr>';
@@ -698,7 +706,7 @@ final class GUC_Casos_Compact {
       $i=1;
       $pdf_col = $this->pdf_column_for($table);
       foreach($rows as $r){
-        $fecha = $this->html_esc($r->fecha);
+        $fecha = $this->date_only($r->fecha);
         $sit   = $this->html_esc($r->situacion);
         $mot   = $this->html_esc($r->motivo);
         $pdf   = ($pdf_col && !empty($r->$pdf_col)) ? esc_url($r->$pdf_col) : '';
