@@ -519,6 +519,23 @@
       } catch(e){}
     }
 
+    function toDateInputValue(raw){
+      if (!raw) return '';
+      const normalized = String(raw).replace(' ', 'T');
+      const parsed = new Date(normalized);
+      if (!isNaN(parsed.getTime())) {
+        const local = new Date(parsed.getTime() - parsed.getTimezoneOffset() * 60000);
+        return local.toISOString().slice(0, 10);
+      }
+      return String(raw).split(' ')[0];
+    }
+
+    function todayInputValue(){
+      const now = new Date();
+      const local = new Date(now.getTime() - now.getTimezoneOffset() * 60000);
+      return local.toISOString().slice(0, 10);
+    }
+
     updateSearchUI();
     updateFilterUI();
     closeFilterMenu(true);
@@ -778,8 +795,7 @@
           $statusForm.find('[name=estado]').val(d.estado || '');
           const fecha = d.estado_fecha || '';
           if (fecha) {
-            const iso = fecha.replace(' ', 'T').slice(0,16);
-            $statusForm.find('[name=estado_fecha]').val(iso);
+            $statusForm.find('[name=estado_fecha]').val(toDateInputValue(fecha));
           }
         }
         statusDirty = false;
@@ -851,9 +867,7 @@
       // autollenar fecha actual
       const $fecha = $startForm.find('[name=fecha]');
       if ($fecha.length && !$fecha.val()) {
-        const now = new Date();
-        const iso = new Date(now.getTime() - now.getTimezoneOffset()*60000).toISOString().slice(0,16);
-        $fecha.val(iso);
+        $fecha.val(todayInputValue());
       }
       openStart();
     });
@@ -975,9 +989,7 @@
 
       const $fecha = $startForm.find('[name=fecha]');
       if ($fecha.length && !$fecha.val()) {
-        const now = new Date();
-        const iso = new Date(now.getTime() - now.getTimezoneOffset()*60000).toISOString().slice(0,16);
-        $fecha.val(iso);
+        $fecha.val(todayInputValue());
       }
       openStart();
     });
@@ -1012,9 +1024,7 @@
         $startForm.find('[name=situacion]').val(d.situacion || '');
         $startForm.find('[name=motivo]').val(d.motivo || '');
         if (d.fecha) {
-          // ensure format yyyy-mm-ddThh:mm
-          const isoLocal = d.fecha.replace(' ', 'T').slice(0,16);
-          $startForm.find('[name=fecha]').val(isoLocal);
+          $startForm.find('[name=fecha]').val(toDateInputValue(d.fecha));
         }
         const pdfUrl = d.pdf_url || d.pdf || d.file_url || d.attachment_url || '';
         showPdfField(true);
