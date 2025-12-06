@@ -13,12 +13,12 @@
 
 /* ===== base ===== */
 #gcas-casos-app.gcas-wrap{font-family:'Montserrat','Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--gcas-text);background:var(--gcas-cream);padding:8px 10px;border-radius:16px;}
-#gcas-casos-app .gcas-header{display:flex;align-items:center;justify-content:space-between;margin:8px 0 16px;gap:12px;flex-wrap:wrap;}
-#gcas-casos-app .gcas-title{font-weight:800;font-size:24px;margin:0;margin-right:auto;color:var(--gcas-primary);letter-spacing:.2px;font-family:'Montserrat','Poppins',sans-serif;}
-#gcas-casos-app .gcas-header-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end;}
+#gcas-casos-app .gcas-header{display:flex;align-items:flex-start;justify-content:space-between;margin:8px 0 16px;gap:12px;flex-wrap:wrap;}
+#gcas-casos-app .gcas-header-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end;flex:1 1 360px;min-width:0;}
 #gcas-casos-app .gcas-header-controls>*{flex-shrink:0;}
-#gcas-casos-app .gcas-search{display:flex;align-items:center;gap:6px;border:1px solid var(--gcas-gold);border-radius:999px;background:rgba(255,248,242,.95);box-shadow:0 4px 12px rgba(104,9,43,.08);padding:7px 12px;min-width:240px;height:44px;overflow:hidden;}
-#gcas-casos-app .gcas-search input{border:0;background:transparent;padding:6px 12px!important;font-size:14px;color:var(--gcas-primary-dark);min-width:0;flex:1 1 auto;font-family:'Poppins','Montserrat',sans-serif;height:32px!important;line-height:32px!important;box-sizing:border-box;align-self:center;margin:0;display:block;}
+#gcas-casos-app .gcas-title{font-weight:800;font-size:24px;margin:0;margin-right:auto;color:var(--gcas-primary);letter-spacing:.2px;font-family:'Montserrat','Poppins',sans-serif;}
+#gcas-casos-app .gcas-search{display:flex;align-items:center;gap:6px;border:1px solid var(--gcas-gold);border-radius:999px;background:rgba(255,248,242,.95);box-shadow:0 4px 12px rgba(104,9,43,.08);padding:7px 14px;min-width:260px;height:44px;overflow:visible;flex:1 1 420px;max-width:100%;}
+#gcas-casos-app .gcas-search input{border:0;background:transparent;padding:6px 12px!important;font-size:14px;color:var(--gcas-primary-dark);min-width:0;flex:1 1 auto;font-family:'Poppins','Montserrat',sans-serif;height:32px!important;line-height:32px!important;box-sizing:border-box;align-self:center;margin:0;display:block;width:100%;}
 #gcas-casos-app .gcas-search input:focus{outline:0;}
 #gcas-casos-app .gcas-search:focus-within{box-shadow:0 0 0 3px rgba(210,174,109,.35);}
 #gcas-casos-app .gcas-search-btn{border:0;background:var(--gcas-primary);color:#fff;border-radius:12px;width:38px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s ease,transform .12s ease;box-shadow:0 4px 10px rgba(104,9,43,.2);}
@@ -189,7 +189,7 @@
 #gcas-casos-app .gcas-ico::before,
 #gcas-casos-app-modal .gcas-ico::before,
 #gcas-casos-app-modal-start .gcas-ico::before,
-#gcas-casos-app-modal-status .gcas-ico::before{content:"";display:block;width:32px;height:32px;background-color:currentColor;mask-repeat:no-repeat;mask-position:center;mask-size:contain;-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;-webkit-mask-size:contain}
+#gcas-casos-app-modal-status .gcas-ico::before{content:"";display:block;width:32px;height:32px;background-color:currentColor;mask-repeat:no-repeat;mask-position:center;mask-size:contain;-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;-webkit-mask-size:contain;opacity:1}
 #gcas-casos-app .gcas-ico::before,
 #gcas-casos-app-modal .gcas-ico::before,
 #gcas-casos-app-modal-start .gcas-ico::before,
@@ -230,6 +230,16 @@
 #gcas-casos-app-modal .gcas-ico.gcas-ico-view::before,
 #gcas-casos-app-modal-start .gcas-ico.gcas-ico-view::before,
 #gcas-casos-app-modal-status .gcas-ico.gcas-ico-view::before{mask-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='currentColor' d='M12 5c-5.05 0-9.27 3.11-11 7 1.73 3.89 5.95 7 11 7s9.27-3.11 11-7c-1.73-3.89-5.95-7-11-7zm0 12c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z'/></svg>");-webkit-mask-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='currentColor' d='M12 5c-5.05 0-9.27 3.11-11 7 1.73 3.89 5.95 7 11 7s9.27-3.11 11-7c-1.73-3.89-5.95-7-11-7zm0 12c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z'/></svg>");background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%2342041a' d='M12 5c-5.05 0-9.27 3.11-11 7 1.73 3.89 5.95 7 11 7s9.27-3.11 11-7c-1.73-3.89-5.95-7-11-7zm0 12c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z'/></svg>")}
+
+#gcas-casos-app .gcas-pdf-buttons .gcas-ico,
+#gcas-casos-app-modal-start .gcas-pdf-buttons .gcas-ico{
+  background:#fff;
+  color:var(--gcas-primary);
+  border-color:var(--gcas-gold);
+  box-shadow:0 6px 14px rgba(66,4,26,.16);
+}
+#gcas-casos-app .gcas-pdf-buttons .gcas-ico::before,
+#gcas-casos-app-modal-start .gcas-pdf-buttons .gcas-ico::before{opacity:1;filter:none;background-size:28px 28px}
 #gcas-casos-app .gcas-ico.gcas-ico-gear::before,
 #gcas-casos-app-modal .gcas-ico.gcas-ico-gear::before,
 #gcas-casos-app-modal-start .gcas-ico.gcas-ico-gear::before,
