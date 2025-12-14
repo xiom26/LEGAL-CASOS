@@ -13,16 +13,17 @@
 
 /* ===== base ===== */
 #gcas-casos-app.gcas-wrap{font-family:'Montserrat','Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--gcas-text);background:var(--gcas-cream);padding:8px 10px;border-radius:16px;}
-#gcas-casos-app .gcas-header{display:flex;align-items:flex-start;justify-content:space-between;margin:8px 0 16px;gap:12px;flex-wrap:wrap;}
-#gcas-casos-app .gcas-header-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end;flex:1 1 360px;min-width:0;}
+#gcas-casos-app .gcas-header{display:flex;flex-direction:column;align-items:center;justify-content:center;margin:8px 0 16px;gap:10px;flex-wrap:wrap;}
+#gcas-casos-app .gcas-header-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;width:100%;}
 #gcas-casos-app .gcas-header-controls>*{flex-shrink:0;}
-#gcas-casos-app .gcas-title{font-weight:800;font-size:24px;margin:0;margin-right:auto;color:var(--gcas-primary);letter-spacing:.2px;font-family:'Montserrat','Poppins',sans-serif;}
-#gcas-casos-app .gcas-search{display:flex;align-items:center;gap:6px;border:1px solid var(--gcas-gold);border-radius:999px;background:rgba(255,248,242,.95);box-shadow:0 4px 12px rgba(104,9,43,.08);padding:7px 14px;min-width:260px;height:44px;overflow:visible;flex:1 1 420px;max-width:100%;}
-#gcas-casos-app .gcas-search input{border:0;background:transparent;padding:6px 12px!important;font-size:14px;color:var(--gcas-primary-dark);min-width:0;flex:1 1 auto;font-family:'Poppins','Montserrat',sans-serif;height:32px!important;line-height:18px!important;box-sizing:border-box;align-self:center;margin:0;display:block;width:100%;}
+#gcas-casos-app .gcas-title{font-weight:800;font-size:24px;margin:0;color:var(--gcas-primary);letter-spacing:.2px;font-family:'Montserrat','Poppins',sans-serif;}
+#gcas-casos-app .gcas-search{display:flex;align-items:center;gap:10px;border:1px solid #e2d8c7;border-radius:999px;background:#fef7ed;box-shadow:0 4px 12px rgba(66,4,26,.06);padding:6px 12px;min-width:0;height:40px;overflow:visible;flex:0 0 280px;max-width:280px;margin:0 auto;}
+#gcas-casos-app .gcas-search input{border:0;background:transparent;padding:8px 6px!important;font-size:14px;color:var(--gcas-primary-dark);min-width:0;flex:1 1 auto;font-family:'Poppins','Montserrat',sans-serif;height:32px!important;line-height:18px!important;box-sizing:border-box;align-self:center;margin:0;display:block;width:100%;}
+#gcas-casos-app .gcas-search input::placeholder{color:#b6a48b;}
 #gcas-casos-app .gcas-search input:focus{outline:0;}
 #gcas-casos-app .gcas-search:focus-within{box-shadow:0 0 0 3px rgba(210,174,109,.35);}
-#gcas-casos-app .gcas-search-btn{border:0;background:var(--gcas-primary);color:#fff;border-radius:12px;width:38px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s ease,transform .12s ease;box-shadow:0 4px 10px rgba(104,9,43,.2);}
-#gcas-casos-app .gcas-search-btn:hover{background:var(--gcas-primary-dark);}
+#gcas-casos-app .gcas-search-btn{border:0;background:#b89b76;color:#fff;border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s ease,transform .12s ease,box-shadow .15s ease;box-shadow:0 4px 12px rgba(104,9,43,.18);}
+#gcas-casos-app .gcas-search-btn:hover{background:#a8875c;}
 #gcas-casos-app .gcas-search-btn:active{transform:scale(.94);}
 #gcas-casos-app .gcas-filter{position:relative;}
 #gcas-casos-app .gcas-filter[data-filter-active="1"] .gcas-filter-toggle{background:linear-gradient(90deg,var(--gcas-gold) 0%,var(--gcas-gold-soft) 100%);color:var(--gcas-primary-dark);border-color:var(--gcas-gold-soft);}
@@ -67,7 +68,7 @@
 #gcas-casos-app .gcas-empty{color:var(--gcas-muted);text-align:center;padding:16px;font-weight:600;}
 
 /* ===== acciones ===== */
-#gcas-casos-app .gcas-actions{display:flex;align-items:center;gap:10px;}
+#gcas-casos-app .gcas-actions{display:flex;align-items:center;gap:8px;}
 #gcas-casos-app .gcas-actions .gcas-act{border:0;padding:0;background:transparent;cursor:pointer;}
 #gcas-casos-app .gcas-actions .gcas-act .gcas-ico{margin-right:0;}
 #gcas-casos-app .gcas-pill{background:var(--gcas-primary);color:#fff;border:0;border-radius:12px;padding:8px 12px;font-weight:800;box-shadow:0 6px 12px rgba(104,9,43,.18);letter-spacing:.3px;}
@@ -185,15 +186,15 @@
 #gcas-casos-app .gcas-ico,
 #gcas-casos-app-modal .gcas-ico,
 #gcas-casos-app-modal-start .gcas-ico,
-#gcas-casos-app-modal-status .gcas-ico{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid rgba(210,174,109,.7);border-radius:14px;background:var(--gcas-cream);cursor:pointer;margin-right:8px;color:var(--gcas-primary-dark);transition:background .15s ease,transform .12s ease,box-shadow .15s ease;box-shadow:0 6px 12px rgba(66,4,26,.12)}
+#gcas-casos-app-modal-status .gcas-ico{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid #dbc7a9;border-radius:10px;background:#fef7ed;cursor:pointer;margin-right:0;color:#5a4333;transition:background .15s ease,transform .12s ease,box-shadow .15s ease,border-color .15s ease;font-size:18px;line-height:1;box-shadow:0 6px 14px rgba(66,4,26,.08);font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","Twemoji Mozilla","Poppins","Montserrat",sans-serif}
 #gcas-casos-app .gcas-ico::before,
 #gcas-casos-app-modal .gcas-ico::before,
 #gcas-casos-app-modal-start .gcas-ico::before,
-#gcas-casos-app-modal-status .gcas-ico::before{content:"";display:block;width:32px;height:32px;background-color:transparent;mask-repeat:no-repeat;mask-position:center;mask-size:contain;-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;-webkit-mask-size:contain;opacity:1;background-repeat:no-repeat;background-position:center;background-size:24px 24px}
+#gcas-casos-app-modal-status .gcas-ico::before{content:"";display:flex;align-items:center;justify-content:center;width:100%;height:100%;font-size:19px;color:inherit;font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","Twemoji Mozilla","Poppins","Montserrat",sans-serif}
 #gcas-casos-app .gcas-ico:hover,
 #gcas-casos-app-modal .gcas-ico:hover,
 #gcas-casos-app-modal-start .gcas-ico:hover,
-#gcas-casos-app-modal-status .gcas-ico:hover{background:rgba(210,174,109,.2);transform:translateY(-1px)}
+#gcas-casos-app-modal-status .gcas-ico:hover{background:#f5e9d9;border-color:#d2ae6d;transform:translateY(-1px)}
 #gcas-casos-app .gcas-ico:active,
 #gcas-casos-app-modal .gcas-ico:active,
 #gcas-casos-app-modal-start .gcas-ico:active,
@@ -209,41 +210,41 @@
 #gcas-casos-app .gcas-ico.has-pdf,#gcas-casos-app .gcas-ico[data-has-pdf="1"],
 #gcas-casos-app-modal .gcas-ico.has-pdf,#gcas-casos-app-modal .gcas-ico[data-has-pdf="1"],
 #gcas-casos-app-modal-start .gcas-ico.has-pdf,#gcas-casos-app-modal-start .gcas-ico[data-has-pdf="1"],
-#gcas-casos-app-modal-status .gcas-ico.has-pdf,#gcas-casos-app-modal-status .gcas-ico[data-has-pdf="1"]{background:rgba(210,174,109,.18);border-color:var(--gcas-gold-soft);color:var(--gcas-primary-dark)}
+#gcas-casos-app-modal-status .gcas-ico.has-pdf,#gcas-casos-app-modal-status .gcas-ico[data-has-pdf="1"]{background:#f3e8d9;border-color:var(--gcas-gold-soft);color:var(--gcas-primary-dark)}
 #gcas-casos-app .gcas-ico::before,
 #gcas-casos-app-modal .gcas-ico::before,
 #gcas-casos-app-modal-start .gcas-ico::before,
-#gcas-casos-app-modal-status .gcas-ico::before{mask-image:none!important;-webkit-mask-image:none!important;}
+#gcas-casos-app-modal-status .gcas-ico::before{mask-image:none!important;-webkit-mask-image:none!important;background:none!important}
 #gcas-casos-app .gcas-ico.gcas-ico-upload::before,
 #gcas-casos-app-modal .gcas-ico.gcas-ico-upload::before,
 #gcas-casos-app-modal-start .gcas-ico.gcas-ico-upload::before,
-#gcas-casos-app-modal-status .gcas-ico.gcas-ico-upload::before{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%2342041a' d='M12 3l4.5 4.5h-2.5V13h-4V7.5H7.5L12 3zm-7 14h14v2H5v-2z'/></svg>")}
+#gcas-casos-app-modal-status .gcas-ico.gcas-ico-upload::before{content:"📤"}
 #gcas-casos-app .gcas-ico.gcas-ico-edit::before,
 #gcas-casos-app-modal .gcas-ico.gcas-ico-edit::before,
 #gcas-casos-app-modal-start .gcas-ico.gcas-ico-edit::before,
-#gcas-casos-app-modal-status .gcas-ico.gcas-ico-edit::before{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%2342041a' d='M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zm2.92 1.83l10.9-10.9 1.79 1.79-10.9 10.9H5.92zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.13 1.13 3.75 3.75 1.13-1.13z'/></svg>")}
+#gcas-casos-app-modal-status .gcas-ico.gcas-ico-edit::before{content:"✏️"}
 #gcas-casos-app .gcas-ico.gcas-ico-del::before,
 #gcas-casos-app-modal .gcas-ico.gcas-ico-del::before,
 #gcas-casos-app-modal-start .gcas-ico.gcas-ico-del::before,
-#gcas-casos-app-modal-status .gcas-ico.gcas-ico-del::before{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%2342041a' d='M6 7h12v12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V7zm3-4h6l1 1h4v2H4V4h4l1-1zm1 6v10h2V9h-2zm4 0v10h2V9h-2z'/></svg>")}
+#gcas-casos-app-modal-status .gcas-ico.gcas-ico-del::before{content:"🗑️"}
 #gcas-casos-app .gcas-ico.gcas-ico-view::before,
 #gcas-casos-app-modal .gcas-ico.gcas-ico-view::before,
 #gcas-casos-app-modal-start .gcas-ico.gcas-ico-view::before,
-#gcas-casos-app-modal-status .gcas-ico.gcas-ico-view::before{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%2342041a' d='M12 5c-5.05 0-9.27 3.11-11 7 1.73 3.89 5.95 7 11 7s9.27-3.11 11-7c-1.73-3.89-5.95-7-11-7zm0 12c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z'/></svg>")}
+#gcas-casos-app-modal-status .gcas-ico.gcas-ico-view::before{content:"👁️"}
 
 #gcas-casos-app .gcas-pdf-buttons .gcas-ico,
 #gcas-casos-app-modal-start .gcas-pdf-buttons .gcas-ico{
-  background:#fff;
-  color:var(--gcas-primary);
-  border-color:var(--gcas-gold);
-  box-shadow:0 6px 14px rgba(66,4,26,.16);
+  background:#fff7ec;
+  color:#7f654a;
+  border-color:#e2d8c7;
+  box-shadow:0 6px 14px rgba(66,4,26,.12);
 }
 #gcas-casos-app .gcas-pdf-buttons .gcas-ico::before,
 #gcas-casos-app-modal-start .gcas-pdf-buttons .gcas-ico::before{opacity:1;filter:none;background-size:28px 28px}
 #gcas-casos-app .gcas-ico.gcas-ico-gear::before,
 #gcas-casos-app-modal .gcas-ico.gcas-ico-gear::before,
 #gcas-casos-app-modal-start .gcas-ico.gcas-ico-gear::before,
-#gcas-casos-app-modal-status .gcas-ico.gcas-ico-gear::before{mask-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='currentColor' d='M19.14 12.94c.04-.31.06-.63.06-.94s-.02-.63-.06-.94l2.03-1.58a.5.5 0 0 0 .12-.64l-1.92-3.32a.5.5 0 0 0-.6-.22l-2.39.96a7.02 7.02 0 0 0-1.63-.94l-.36-2.54A.5.5 0 0 0 14.39 2h-3.78a.5.5 0 0 0-.5.42l-.36 2.54c-.6.23-1.15.54-1.66.9l-2.39-.96a.5.5 0 0 0-.6.22L2.18 8.44a.5.5 0 0 0 .12.64l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58a.5.5 0 0 0-.12.64l1.92 3.32c.13.23.4.32.64.22l2.39-.96c.48.37 1.03.67 1.63.94l.36 2.54a.5.5 0 0 0 .5.42h3.78a.5.5 0 0 0 .5-.42l.36-2.54c.6-.23 1.15-.54 1.66-.9l2.39.96c.24.1.51.01.64-.22l1.92-3.32a.5.5 0 0 0-.12-.64l-2.03-1.58zM12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z'/></svg>");-webkit-mask-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='currentColor' d='M19.14 12.94c.04-.31.06-.63.06-.94s-.02-.63-.06-.94l2.03-1.58a.5.5 0 0 0 .12-.64l-1.92-3.32a.5.5 0 0 0-.6-.22l-2.39.96a7.02 7.02 0 0 0-1.63-.94l-.36-2.54A.5.5 0 0 0 14.39 2h-3.78a.5.5 0 0 0-.5.42l-.36 2.54c-.6.23-1.15.54-1.66.9l-2.39-.96a.5.5 0 0 0-.6.22L2.18 8.44a.5.5 0 0 0 .12.64l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58a.5.5 0 0 0-.12.64l1.92 3.32c.13.23.4.32.64.22l2.39-.96c.48.37 1.03.67 1.63.94l.36 2.54a.5.5 0 0 0 .5.42h3.78a.5.5 0 0 0 .5-.42l.36-2.54c.6-.23 1.15-.54 1.66-.9l2.39.96c.24.1.51.01.64-.22l1.92-3.32a.5.5 0 0 0-.12-.64l-2.03-1.58zM12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z'/></svg>");background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%2342041a' d='M19.14 12.94c.04-.31.06-.63.06-.94s-.02-.63-.06-.94l2.03-1.58a.5.5 0 0 0 .12-.64l-1.92-3.32a.5.5 0 0 0-.6-.22l-2.39.96a7.02 7.02 0 0 0-1.63-.94l-.36-2.54A.5.5 0 0 0 14.39 2h-3.78a.5.5 0 0 0-.5.42l-.36 2.54c-.6.23-1.15.54-1.66.9l-2.39-.96a.5.5 0 0 0-.6.22L2.18 8.44a.5.5 0 0 0 .12.64l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58a.5.5 0 0 0-.12.64l1.92 3.32c.13.23.4.32.64.22l2.39-.96c.48.37 1.03.67 1.63.94l.36 2.54a.5.5 0 0 0 .5.42h3.78a.5.5 0 0 0 .5-.42l.36-2.54c.6-.23 1.15-.54 1.66-.9l2.39.96c.24.1.51.01.64-.22l1.92-3.32a.5.5 0 0 0-.12-.64l-2.03-1.58zM12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z'/></svg>")}
+#gcas-casos-app-modal-status .gcas-ico.gcas-ico-gear::before{content:"⚙️"}
 
 #gcas-casos-app .gcas-subtitle,
 #gcas-casos-app .gcas-panel .gcas-subtitle{font-family:'Montserrat','Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
