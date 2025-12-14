@@ -23,6 +23,31 @@
     let currentFilter = '';
     let filterMenuOpen = false;
 
+    const EMOJI_MAP = {
+      'gcas-ico-upload':'📤',
+      'gcas-ico-edit':'✏️',
+      'gcas-ico-del':'🗑️',
+      'gcas-ico-view':'👁️',
+      'gcas-ico-gear':'⚙️'
+    };
+
+    function applyEmojiIcons($scope){
+      const $target = ($scope && $scope.length) ? $scope.find('.gcas-ico') : $('.gcas-ico');
+      $target.each(function(){
+        const $el = $(this);
+        let glyph = '';
+        Object.keys(EMOJI_MAP).some(function(cls){
+          if ($el.hasClass(cls)) { glyph = EMOJI_MAP[cls]; return true; }
+          return false;
+        });
+        if (glyph && $el.text().trim() !== glyph) {
+          $el.text(glyph);
+        }
+      });
+    }
+
+    applyEmojiIcons($root);
+
     function updateSearchUI(){
       if ($searchInput.length) {
         $searchInput.val(currentSearch);
@@ -690,6 +715,7 @@
       }, function(res){
         if (res && res.success) {
           $tbody.html(res.data.html);
+          applyEmojiIcons($tbody);
           restoreState(runtimeState.openCases && runtimeState.openCases.length ? runtimeState : null);
         } else {
           $tbody.html('<tr><td colspan="6" class="gcas-empty">Error al cargar.</td></tr>');
@@ -934,6 +960,7 @@
           $.post(GUC_CASOS.ajax, { action:'guc_cs_list_section', nonce:GUC_CASOS.nonce, case_id:caseId, section: bucketKey }, function(res){
             if (res && res.success) {
               $wrap.html(res.data.html);
+              applyEmojiIcons($wrap);
               updateCaseHasActions($wrap.closest('tr.gcas-subrow'));
               rememberState(captureState());
             }
@@ -957,6 +984,7 @@
         $.post(GUC_CASOS.ajax, { action:'guc_cs_list_section', nonce:GUC_CASOS.nonce, case_id:caseId, section:key }, function(res){
           if (res && res.success) {
             $wrap.html(res.data.html);
+            applyEmojiIcons($wrap);
             updateCaseHasActions($wrap.closest('tr.gcas-subrow'));
             rememberState(captureState());
           }
