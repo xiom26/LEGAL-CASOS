@@ -17,13 +17,13 @@
 #gcas-casos-app .gcas-header-controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;width:100%;}
 #gcas-casos-app .gcas-header-controls>*{flex-shrink:0;}
 #gcas-casos-app .gcas-title{font-weight:800;font-size:24px;margin:0;color:var(--gcas-primary);letter-spacing:.2px;font-family:'Montserrat','Poppins',sans-serif;}
-#gcas-casos-app .gcas-search{display:flex;align-items:center;gap:10px;border:1px solid #e2d8c7;border-radius:999px;background:#fef7ed;box-shadow:0 4px 12px rgba(66,4,26,.06);padding:6px 12px;min-width:0;height:40px;overflow:visible;flex:0 0 280px;max-width:280px;margin:0 auto;}
-#gcas-casos-app .gcas-search input{border:0;background:transparent;padding:8px 6px!important;font-size:14px;color:var(--gcas-primary-dark);min-width:0;flex:1 1 auto;font-family:'Poppins','Montserrat',sans-serif;height:32px!important;line-height:18px!important;box-sizing:border-box;align-self:center;margin:0;display:block;width:100%;}
+#gcas-casos-app .gcas-search{display:flex;align-items:center;gap:6px;border:1px solid #dbc7a9;border-radius:999px;background:#fef7ed;box-shadow:0 4px 12px rgba(66,4,26,.06);padding:4px 8px;min-width:220px;max-width:280px;height:36px;overflow:hidden;flex:0 1 auto;margin:0 auto;}
+#gcas-casos-app .gcas-search input{border:0;background:transparent;padding:8px 6px!important;font-size:14px;color:var(--gcas-primary-dark);min-width:0;flex:1 1 auto;font-family:'Poppins','Montserrat',sans-serif;height:28px!important;line-height:18px!important;box-sizing:border-box;align-self:center;margin:0;display:block;width:100%;}
 #gcas-casos-app .gcas-search input::placeholder{color:#b6a48b;}
 #gcas-casos-app .gcas-search input:focus{outline:0;}
 #gcas-casos-app .gcas-search:focus-within{box-shadow:0 0 0 3px rgba(210,174,109,.35);}
-#gcas-casos-app .gcas-search-btn{border:0;background:#b89b76;color:#fff;border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s ease,transform .12s ease,box-shadow .15s ease;box-shadow:0 4px 12px rgba(104,9,43,.18);}
-#gcas-casos-app .gcas-search-btn:hover{background:#a8875c;}
+#gcas-casos-app .gcas-search-btn{border:0;background:#bfa27b;color:#fff;border-radius:50%;width:36px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s ease,transform .12s ease,box-shadow .15s ease;box-shadow:0 4px 12px rgba(104,9,43,.12);}
+#gcas-casos-app .gcas-search-btn:hover{background:#ae926a;}
 #gcas-casos-app .gcas-search-btn:active{transform:scale(.94);}
 #gcas-casos-app .gcas-filter{position:relative;}
 #gcas-casos-app .gcas-filter[data-filter-active="1"] .gcas-filter-toggle{background:linear-gradient(90deg,var(--gcas-gold) 0%,var(--gcas-gold-soft) 100%);color:var(--gcas-primary-dark);border-color:var(--gcas-gold-soft);}
@@ -186,7 +186,7 @@
 #gcas-casos-app .gcas-ico,
 #gcas-casos-app-modal .gcas-ico,
 #gcas-casos-app-modal-start .gcas-ico,
-#gcas-casos-app-modal-status .gcas-ico{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid #dbc7a9;border-radius:10px;background:#fef7ed;cursor:pointer;margin-right:0;color:#5a4333;transition:background .15s ease,transform .12s ease,box-shadow .15s ease,border-color .15s ease;font-size:18px;line-height:1;box-shadow:0 6px 14px rgba(66,4,26,.08);font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","Twemoji Mozilla","Poppins","Montserrat",sans-serif}
+#gcas-casos-app-modal-status .gcas-ico{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border:1px solid #dbc7a9;border-radius:10px;background:#fef7ed;cursor:pointer;margin-right:0;color:#5a4333;transition:background .15s ease,transform .12s ease,box-shadow .15s ease,border-color .15s ease;font-size:0;line-height:1;box-shadow:0 6px 14px rgba(66,4,26,.08);font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","Twemoji Mozilla","Poppins","Montserrat",sans-serif}
 #gcas-casos-app .gcas-ico::before,
 #gcas-casos-app-modal .gcas-ico::before,
 #gcas-casos-app-modal-start .gcas-ico::before,
